@@ -1,4 +1,5 @@
 import GlobalStyle, { Container, MainContainer } from './styles/index'
+import Card from '../components/Card/index'
 
 function App() {
   return (
@@ -6,8 +7,8 @@ function App() {
       <GlobalStyle />
       <Container>
         <MainContainer>
-
-        <h1>Hellow</h1>
+          <h1>Hellow</h1>
+          <Card />
         </MainContainer>
       </Container>
     </>

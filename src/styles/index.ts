@@ -12,7 +12,7 @@ const globalStyle = createGlobalStyle`
 export const MainContainer = styled.div`
   margin: 0 auto;
   max-width: 55rem;
-  background-color: blue;
+  background-color: #ccc;
   text-align: center;
 `
 
