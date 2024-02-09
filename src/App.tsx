@@ -1,9 +1,15 @@
-import './App.css'
+import GlobalStyle, { Container, MainContainer } from './styles/index'
 
 function App() {
   return (
     <>
-      <h1>Hellow</h1>
+      <GlobalStyle />
+      <Container>
+        <MainContainer>
+
+        <h1>Hellow</h1>
+        </MainContainer>
+      </Container>
     </>
   )
 }
