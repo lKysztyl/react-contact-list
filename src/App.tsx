@@ -1,5 +1,5 @@
 import GlobalStyle, { Container, MainContainer } from './styles/index'
-import Card from '../components/Card/index'
+import Card from './components/Card/index'
 
 function App() {
   return (

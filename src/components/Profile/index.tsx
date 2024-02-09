@@ -1,6 +1,5 @@
-import React from 'react'
 import { Profile as StyledProfile } from './styles.ts'
-function Profile() {
+const Profile = () => {
   return <StyledProfile />
 }
 
