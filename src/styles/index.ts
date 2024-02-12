@@ -23,8 +23,9 @@ export const Container = styled.div`
 `
 
 export const ButtonContainer = styled.div`
-  max-width: 4rem;
-  background-color: #0ff5c0;
+  display: block;
+  width: 100%;
+  margin-left: auto;
 `
 
 export default globalStyle

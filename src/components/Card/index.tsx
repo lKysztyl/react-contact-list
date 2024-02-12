@@ -9,7 +9,6 @@ const Card = () => {
     <StyledCard>
       <Profile />
       <ProfileCard />
-      <h1>Hellow Card!</h1>
       <ButtonContainer>
         <CardButton />
         <CardButton />

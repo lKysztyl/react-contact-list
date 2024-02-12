@@ -1,11 +1,15 @@
 import styled from 'styled-components'
 
 export const CardButton = styled.button`
-  width: 25px;
+  display: block;
+  width: 125px;
   height: 25px;
-  color: #0fe4e4;
-  border-radius: 3px;
-  background-color: #0fe4e4;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(00, 00, 0, 0.25);
+  cursor: pointer;
+  margin: 1rem;
 `
 
 export default CardButton
