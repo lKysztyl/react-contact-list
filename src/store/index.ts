@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import userReducer from './reducers/fakeAPI'
+
 const store = configureStore({
   reducer: {
     user: userReducer
@@ -7,5 +8,4 @@ const store = configureStore({
 })
 
 export type RootReducer = ReturnType<typeof store.getState>
-
 export default store

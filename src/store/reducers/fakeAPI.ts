@@ -1,26 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export interface UserData {
-  id: number
-  name: string
-  company: string
-  username: string
-  email: string
-  address: string
-  zip: string
-  state: string
-  country: string
-  phone: string
-  photo: string
+  id?: number
+  name?: string
+  company?: string
+  username?: string
+  email?: string
+  address?: string
+  zip?: string
+  state?: string
+  country?: string
+  phone?: string
+  photo?: string
 }
 
 interface UserState {
-  userData: UserData[] | null
+  userData: UserData[]
   loading: boolean
 }
 
 const initialState: UserState = {
-  userData: null,
+  userData: [],
   loading: false
 }
 
