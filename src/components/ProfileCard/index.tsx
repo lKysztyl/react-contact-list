@@ -1,15 +1,15 @@
-import { ProfileCard as StyledProfileCard } from './styles.ts'
+import * as S from './styles.ts'
 import { UserData } from '../../store/reducers/fakeAPI.ts'
 
-const ProfileCard = ({ email, name }: UserData) => {
+const ProfileCard = ({ email, name, phone }: UserData) => {
   return (
-    <StyledProfileCard>
+    <S.ProfileCard>
       <h2>{name ?? 'Nome não informado'}</h2>
       <ul>
-        <li>Numb</li>
+        <li>{phone ?? 'Telefone não informado'}</li>
         <li>{email ?? 'Email não informado'}</li>
       </ul>
-    </StyledProfileCard>
+    </S.ProfileCard>
   )
 }
 

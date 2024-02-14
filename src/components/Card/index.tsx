@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux'
 import { Card as StyledCard } from './styles.ts'
 import Profile from '../Profile'
 import ProfileCard from '../ProfileCard'
-import CardButton from '../Buttons'
+import EditButton from '../Buttons/editButton.tsx'
+import DelButton from '../Buttons/delButton.tsx'
 import { ButtonContainer } from '../../styles'
 
 const Card = () => {
@@ -14,11 +15,15 @@ const Card = () => {
       {userData.map((user) => (
         <div key={user.id}>
           <StyledCard>
-            <Profile />
-            <ProfileCard email={user.email} name={user.name} />
+            <Profile photo={user.photo} />
+            <ProfileCard
+              email={user.email}
+              name={user.name}
+              phone={user.phone}
+            />
             <ButtonContainer>
-              <CardButton />
-              <CardButton />
+              <EditButton />
+              <DelButton />
             </ButtonContainer>
           </StyledCard>
         </div>

@@ -6,6 +6,10 @@ const globalStyle = createGlobalStyle`
       padding: 0;
       box-sizing: border-box;
       list-style: none;
+      font-family: "Roboto", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+
   }
 `
 

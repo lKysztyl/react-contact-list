@@ -27,10 +27,8 @@ const App = () => {
       <GlobalStyle />
       <Container>
         <MainContainer>
-          <div>
-            <h1>Dados do Usuário:</h1>
-            <Card />
-          </div>
+          <h1>Dados do Usuário:</h1>
+          <Card />
         </MainContainer>
       </Container>
     </>
