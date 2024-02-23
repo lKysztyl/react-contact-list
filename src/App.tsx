@@ -1,10 +1,24 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { setUserData } from './store/reducers/fakeAPI'
 
-import GlobalStyle, { Container, MainContainer } from './styles/index'
-import Card from './components/Card/index'
+import GlobalStyle, { Container } from './styles/index'
+import NewContact from './pages/NewContact/index'
+import Home from './pages/Home'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />
+  },
+  {
+    path: '/NewContact',
+    element: <NewContact />
+  }
+])
 
 const App = () => {
   const dispatch = useDispatch()
@@ -26,10 +40,7 @@ const App = () => {
     <>
       <GlobalStyle />
       <Container>
-        <MainContainer>
-          <h1>Dados do Usuário:</h1>
-          <Card />
-        </MainContainer>
+        <RouterProvider router={router} />
       </Container>
     </>
   )

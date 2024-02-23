@@ -16,14 +16,22 @@ const globalStyle = createGlobalStyle`
 export const MainContainer = styled.div`
   margin: 0 auto;
   max-width: 55rem;
-  background-color: #ccc;
   text-align: center;
 `
 
 export const Container = styled.div`
   max-width: 96rem;
   height: 100vh;
-  background-color: #cfffff;
+  background: linear-gradient(
+    to right,
+    rgb(55, 65, 81),
+    rgb(17, 24, 39),
+    rgb(0, 0, 0)
+  );
+`
+
+export const NewContainer = styled(Container)`
+  background-color: red;
 `
 
 export const ButtonContainer = styled.div`
