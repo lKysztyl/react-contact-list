@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components'
 
-const globalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   * {
       margin: 0;
       padding: 0;
@@ -16,10 +16,19 @@ const globalStyle = createGlobalStyle`
 export const MainContainer = styled.div`
   margin: 0 auto;
   max-width: 55rem;
+  height: 95%;
   text-align: center;
+  background-color: blue;
+`
+
+export const ContactContainer = styled(MainContainer)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 export const Container = styled.div`
+  margin: 0 auto;
   max-width: 96rem;
   height: 100vh;
   background: linear-gradient(
@@ -30,14 +39,10 @@ export const Container = styled.div`
   );
 `
 
-export const NewContainer = styled(Container)`
-  background-color: red;
-`
-
 export const ButtonContainer = styled.div`
   display: block;
   width: 100%;
   margin-left: auto;
 `
 
-export default globalStyle
+export default GlobalStyle

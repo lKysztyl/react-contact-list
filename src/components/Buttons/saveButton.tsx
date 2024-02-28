@@ -1,4 +1,4 @@
 import * as S from './styles'
-const CardButton = () => <S.CardButton>Salvar</S.CardButton>
+const SaveButton = () => <S.SaveButton type="submit">Salvar</S.SaveButton>
 
-export default CardButton
+export default SaveButton

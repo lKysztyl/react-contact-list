@@ -1,9 +1,5 @@
-import { NewContainer } from '../../styles'
+import Form from '../../components/Form'
 
-const NewContact = () => (
-  <NewContainer>
-    <h1>Ola</h1>
-  </NewContainer>
-)
+const NewContact = () => <Form />
 
 export default NewContact

@@ -13,6 +13,18 @@ export const CardButton = styled.button`
   margin: 1rem;
 `
 
+export const SaveButton = styled.input`
+  display: block;
+  width: 125px;
+  height: 25px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  background-color: green;
+  cursor: pointer;
+  margin: 1rem auto;
+`
+
 export const NewContactButton = styled(Link)`
   background-color: #fff;
   width: 3.5rem;
