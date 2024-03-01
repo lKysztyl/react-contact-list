@@ -22,7 +22,7 @@ export const SaveButton = styled.input`
   border-radius: 5px;
   background-color: green;
   cursor: pointer;
-  margin: 1rem auto;
+  margin: 2rem auto;
 `
 
 export const NewContactButton = styled(Link)`

@@ -1,31 +1,35 @@
 import { FormEvent } from 'react'
-//import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import { ContactContainer, MainContainer } from '../../styles'
-//import SaveButton from '../Buttons/saveButton'
 import { SaveButton } from '../Buttons/styles'
 import * as S from './styles'
+import { setUserInfo } from '../../store/reducers/infoUser'
+import { UserData } from '../../store/reducers/fakeAPI'
 
-const Form = () => {
-  //const dispatch = useDispatch()
+const Form = ({ UserData }: { UserData: UserData }) => {
+  const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const addContact = (e: FormEvent) => {
     e.preventDefault()
-    //dispatch()
+    dispatch(setUserInfo(UserData[1]))
     navigate('/')
   }
 
   return (
     <MainContainer>
-      <h1>Informações do contato</h1>
       <ContactContainer>
         <S.Form onSubmit={addContact}>
-          <S.Input type="text" />
-          <S.Input type="email" name="" id="" />
-          <S.Input type="number" />
-          <SaveButton type="submit" value="Salvar" />
+          <S.NewContactTitel>Informações do contato</S.NewContactTitel>
+          <S.Label htmlFor="inputName">Name:</S.Label>
+          <S.Input type="text" id="inputName" />
+          <S.Label htmlFor="inputEmail">Email:</S.Label>
+          <S.Input type="email" id="inputEmail" />
+          <S.Label htmlFor="inputPhone">Phone:</S.Label>
+          <S.Input type="number" id="inputPhone" />
+          <SaveButton type="submit" value="Save" />
         </S.Form>
       </ContactContainer>
     </MainContainer>

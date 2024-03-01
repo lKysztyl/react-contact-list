@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import userReducer from './reducers/fakeAPI'
+import newContactReducer from './reducers/infoUser'
 
 const store = configureStore({
   reducer: {
-    user: userReducer
+    user: userReducer,
+    newContact: newContactReducer
   }
 })
 

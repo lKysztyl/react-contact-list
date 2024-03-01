@@ -18,7 +18,7 @@ export const MainContainer = styled.div`
   max-width: 55rem;
   height: 95%;
   text-align: center;
-  background-color: blue;
+  //background-color: blue;
 `
 
 export const ContactContainer = styled(MainContainer)`
