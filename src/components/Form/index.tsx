@@ -1,11 +1,11 @@
-import { FormEvent, useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import { ContactContainer, MainContainer } from '../../styles'
 import { SaveButton } from '../Buttons/styles'
 import * as S from './styles'
-import { setUserInfo } from '../../store/reducers/infoUser'
+import { setFormContact } from '../../store/reducers/infoUser'
 
 const Form = () => {
   const dispatch = useDispatch()
@@ -17,13 +17,7 @@ const Form = () => {
     phone: ''
   })
 
-  const addContact = (e: FormEvent) => {
-    e.preventDefault()
-    dispatch(setUserInfo(formData))
-    navigate('/')
-  }
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
     setFormData({
       ...formData,
@@ -31,10 +25,16 @@ const Form = () => {
     })
   }
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    dispatch(setFormContact(formData))
+    navigate('/')
+  }
+
   return (
     <MainContainer>
       <ContactContainer>
-        <S.Form onSubmit={addContact}>
+        <S.Form onSubmit={handleSubmit}>
           <S.NewContactTitel>Informações do contato</S.NewContactTitel>
           <S.Label htmlFor="inputName">Name:</S.Label>
           <S.Input

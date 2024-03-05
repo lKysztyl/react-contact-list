@@ -1,22 +1,22 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-type ContactState = {
+type FormState = {
   name: string
   email: string
   phone: string
 }
 
-const initialState: ContactState = {
+const initialState: FormState = {
   name: '',
   email: '',
   phone: ''
 }
 
-const newUserDataSlice = createSlice({
-  name: 'newUserData',
+const FormSlice = createSlice({
+  name: 'form',
   initialState,
   reducers: {
-    setUserInfo(state, action: PayloadAction<ContactState>) {
+    setFormContact(state, action: PayloadAction<FormState>) {
       state.name = action.payload.name
       state.email = action.payload.email
       state.phone = action.payload.phone
@@ -24,6 +24,6 @@ const newUserDataSlice = createSlice({
   }
 })
 
-export const { setUserInfo } = newUserDataSlice.actions
+export const { setFormContact } = FormSlice.actions
 
-export default newUserDataSlice.reducer
+export default FormSlice.reducer
