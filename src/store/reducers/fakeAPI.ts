@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 export interface UserData {
   id?: number
@@ -31,10 +31,16 @@ const userSlice = createSlice({
     setUserData(state, action) {
       state.loading = false
       state.userData = action.payload
+    },
+    remove(state, action: PayloadAction<UserData>) {
+      const { phone, email } = action.payload
+      state.userData = state.userData.filter(
+        (user) => user.phone !== phone && user.email !== email
+      )
     }
   }
 })
 
-export const { setUserData } = userSlice.actions
+export const { setUserData, remove } = userSlice.actions
 
 export default userSlice.reducer

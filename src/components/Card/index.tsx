@@ -1,15 +1,24 @@
 import { RootReducer } from '../../store/index.ts'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
+import { remove } from '../../store/reducers/infoUser.ts'
+import { remove as fakeApiRemove } from '../../store/reducers/fakeAPI.ts'
+
+import { Form } from '../../store/reducers/infoUser.ts'
 import { Card as StyledCard } from './styles.ts'
 import Profile from '../Profile'
 import ProfileCard from '../ProfileCard'
-import EditButton from '../Buttons/editButton.tsx'
-import DelButton from '../Buttons/delButton.tsx'
+import { CardButton as RemoveButton } from '../Buttons/styles.ts'
+import { CardButton as EditButton } from '../Buttons/styles.ts'
 import { ButtonContainer } from '../../styles'
 
 const Card = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   const userData = useSelector((state: RootReducer) => state.user.userData)
+  const formData = useSelector((state: RootReducer) => state.form.forms)
   return (
     <>
       {userData.map((user) => (
@@ -22,8 +31,54 @@ const Card = () => {
               phone={user.phone}
             />
             <ButtonContainer>
-              <EditButton />
-              <DelButton />
+              <EditButton
+                onClick={() => {
+                  navigate('/Contact')
+                }}
+              >
+                Editar
+              </EditButton>
+              <RemoveButton
+                onClick={() => {
+                  if (user.phone && user.email) {
+                    dispatch(
+                      fakeApiRemove({ phone: user.phone, email: user.email })
+                    )
+                  }
+                }}
+              >
+                Remover
+              </RemoveButton>
+            </ButtonContainer>
+          </StyledCard>
+        </div>
+      ))}
+      {formData.map((form: Form) => (
+        <div key={form.phone}>
+          <StyledCard>
+            <Profile />
+            <ProfileCard
+              email={form.email}
+              name={form.name}
+              phone={form.phone}
+            />
+            <ButtonContainer>
+              <EditButton
+                onClick={() => {
+                  navigate('/Contact')
+                }}
+              >
+                Editar
+              </EditButton>
+              <RemoveButton
+                onClick={() => {
+                  if (form.phone && form.email) {
+                    dispatch(remove({ phone: form.phone, email: form.email }))
+                  }
+                }}
+              >
+                Remover
+              </RemoveButton>
             </ButtonContainer>
           </StyledCard>
         </div>

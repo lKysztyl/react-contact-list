@@ -9,16 +9,15 @@ const GlobalStyle = createGlobalStyle`
       font-family: "Roboto", sans-serif;
       font-weight: 400;
       font-style: normal;
-
   }
 `
 
 export const MainContainer = styled.div`
   margin: 0 auto;
   max-width: 55rem;
-  height: 95%;
+  height: 100vh;
   text-align: center;
-  //background-color: blue;
+  overflow-y: scroll;
 `
 
 export const ContactContainer = styled(MainContainer)`
@@ -37,12 +36,22 @@ export const Container = styled.div`
     rgb(17, 24, 39),
     rgb(0, 0, 0)
   );
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `
 
 export const ButtonContainer = styled.div`
   display: block;
   width: 100%;
   margin-left: auto;
+`
+
+export const FlexContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 export default GlobalStyle

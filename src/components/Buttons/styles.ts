@@ -25,6 +25,10 @@ export const SaveButton = styled.input`
   margin: 2rem auto;
 `
 
+export const CancelButton = styled(SaveButton)`
+  background-color: red;
+`
+
 export const NewContactButton = styled(Link)`
   background-color: #fff;
   width: 3.5rem;
