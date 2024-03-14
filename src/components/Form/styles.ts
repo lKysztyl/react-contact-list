@@ -26,7 +26,7 @@ export const Input = styled.input`
   background-color: ${V.white};
   border-radius: 0.5rem;
   border: none;
-  color: ${V.gray02};
+  color: ${V.whitishBlue};
 `
 
 export const Label = styled.label`

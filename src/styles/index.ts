@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components'
+import { colors as V } from './variables'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -32,9 +33,9 @@ export const Container = styled.div`
   height: 100vh;
   background: linear-gradient(
     to right,
-    rgb(55, 65, 81),
-    rgb(17, 24, 39),
-    rgb(0, 0, 0)
+    ${V.whitishBlue},
+    ${V.deepBlue},
+    ${V.black}
   );
 
   ::-webkit-scrollbar {
