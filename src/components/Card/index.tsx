@@ -19,6 +19,12 @@ const Card = () => {
 
   const userData = useSelector((state: RootReducer) => state.user.userData)
   const formData = useSelector((state: RootReducer) => state.form.forms)
+  const handleEdit = (userId: number | undefined) => {
+    if (userId !== undefined) {
+      navigate(`/contact/${userId}`)
+    }
+  }
+
   return (
     <>
       {userData.map((user) => (
@@ -31,11 +37,7 @@ const Card = () => {
               phone={user.phone}
             />
             <ButtonContainer>
-              <EditButton
-                onClick={() => {
-                  navigate('/Contact')
-                }}
-              >
+              <EditButton onClick={() => handleEdit(user.id)}>
                 Editar
               </EditButton>
               <RemoveButton
@@ -65,7 +67,7 @@ const Card = () => {
             <ButtonContainer>
               <EditButton
                 onClick={() => {
-                  navigate('/Contact')
+                  navigate('/Contacta')
                 }}
               >
                 Editar

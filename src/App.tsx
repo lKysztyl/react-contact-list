@@ -7,8 +7,8 @@ import { setUserData } from './store/reducers/fakeAPI'
 
 import GlobalStyle, { Container } from './styles/index'
 import NewContact from './pages/NewContact/index'
-import Contact from './components/Contact'
 import Home from './pages/Home'
+import Contact from './pages/Contact'
 
 const router = createBrowserRouter([
   {
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     element: <NewContact />
   },
   {
-    path: '/contact',
+    path: '/contact/:id',
     element: <Contact />
   }
 ])

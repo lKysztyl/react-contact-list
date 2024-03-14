@@ -1,5 +1,5 @@
-import Contact from '../../components/Contact'
+import EditContact from '../../components/EditContact'
 
-const Contacta = () => <Contact />
+const Contact = () => <EditContact />
 
-export default Contacta
+export default Contact
