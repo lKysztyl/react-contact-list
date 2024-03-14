@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { produce } from 'immer'
 
 export interface UserData {
   id?: number
@@ -37,10 +38,21 @@ const userSlice = createSlice({
       state.userData = state.userData.filter(
         (user) => user.phone !== phone && user.email !== email
       )
+    },
+
+    edit(state, action: PayloadAction<UserData>) {
+      return produce(state, (draftState) => {
+        const indexContacts = draftState.userData.findIndex(
+          (contact) => contact.phone === action.payload.phone
+        )
+        if (indexContacts >= 0) {
+          draftState.userData[indexContacts] = action.payload
+        }
+      })
     }
   }
 })
 
-export const { setUserData, remove } = userSlice.actions
+export const { setUserData, remove, edit } = userSlice.actions
 
 export default userSlice.reducer

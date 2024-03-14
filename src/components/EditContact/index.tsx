@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 
 import { RootReducer } from '../../store'
-import { setUserData } from '../../store/reducers/fakeAPI'
+import { edit } from '../../store/reducers/fakeAPI'
 
 import { ContactContainer, MainContainer, FlexContainer } from '../../styles'
 import { CancelButton, SaveButton } from '../Buttons/styles'
@@ -12,6 +12,7 @@ import * as S from '../Form/styles'
 const EditContact = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+
   const { id } = useParams<{ id: string | undefined }>()
   const userId = id ? parseInt(id) : undefined
 
@@ -20,9 +21,9 @@ const EditContact = () => {
   )
 
   const [userEdit, setUserEdit] = useState({
-    name: user.name,
-    email: user.email,
-    phone: user.phone
+    name: user ? user.name : '',
+    email: user ? user.email : '',
+    phone: user ? user.phone : ''
   })
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -35,7 +36,7 @@ const EditContact = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    dispatch(setUserData(userEdit))
+    dispatch(edit(userEdit))
     navigate('/')
   }
 
@@ -57,7 +58,7 @@ const EditContact = () => {
             type="text"
             id="inputName"
             name="name"
-            value={user.name}
+            value={userEdit.name}
             onChange={handleInputChange}
           />
           <S.Label htmlFor="inputEmail">Email:</S.Label>
@@ -65,7 +66,7 @@ const EditContact = () => {
             type="email"
             id="inputEmail"
             name="email"
-            value={user.email}
+            value={userEdit.email}
             onChange={handleInputChange}
           />
           <S.Label htmlFor="inputPhone">Phone:</S.Label>
@@ -73,7 +74,7 @@ const EditContact = () => {
             type="tel"
             id="inputPhone"
             name="phone"
-            value={user.phone}
+            value={userEdit.phone}
             onChange={handleInputChange}
           />
           <FlexContainer>
