@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { produce } from 'immer'
 
 export interface Form {
+  id?: number | undefined
   name?: string
   email?: string
   phone?: string
@@ -20,7 +21,15 @@ const FormSlice = createSlice({
   initialState,
   reducers: {
     setFormContact(state, action: PayloadAction<Form>) {
-      state.forms.push(action.payload)
+      const id =
+        state.forms.length > 0
+          ? state.forms[state.forms.length - 1].id! + 1
+          : 1000
+      const newForm: Form = {
+        ...action.payload,
+        id: id
+      }
+      state.forms.push(newForm)
     },
     remove(state, action: PayloadAction<Form>) {
       const { phone, email } = action.payload

@@ -2,10 +2,11 @@ import { ChangeEvent, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
+import { setFormContact } from '../../store/reducers/infoUser'
+
 import { ContactContainer, FlexContainer, MainContainer } from '../../styles'
 import { CancelButton, SaveButton } from '../Buttons/styles'
 import * as S from './styles'
-import { setFormContact } from '../../store/reducers/infoUser'
 
 const Form = () => {
   const dispatch = useDispatch()

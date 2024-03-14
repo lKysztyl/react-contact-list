@@ -7,6 +7,7 @@ import { setUserData } from './store/reducers/fakeAPI'
 
 import GlobalStyle, { Container } from './styles/index'
 import NewContact from './pages/NewContact/index'
+
 import Home from './pages/Home'
 import Contact from './pages/Contact'
 
@@ -33,7 +34,6 @@ const App = () => {
       .then((response) => response.json())
       .then((data) => {
         const limitedUsers = data.slice(0, 3)
-        console.log(limitedUsers)
         dispatch(setUserData(limitedUsers))
       })
       .catch((error) => {

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { colors as V } from '../../styles/variables'
 
 export const Card = styled.div`
   display: grid;
@@ -9,9 +10,9 @@ export const Card = styled.div`
   width: 100%;
   height: 8rem;
   margin: 1.5rem 0rem;
-  background-color: rgba(02, 62, 138, 0.25);
+  background-color: ${V.darkBlue};
   border-radius: 1rem;
-  border: 1px solid rgba(00, 00, 0, 0.25);
+  border: 1px solid ${V.darkside};
 
   & > :nth-child(2) {
     justify-self: start;

@@ -1,17 +1,17 @@
-import { RootReducer } from '../../store/index.ts'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
+import { RootReducer } from '../../store/index.ts'
 import { remove } from '../../store/reducers/infoUser.ts'
 import { remove as fakeApiRemove } from '../../store/reducers/fakeAPI.ts'
-
 import { Form } from '../../store/reducers/infoUser.ts'
-import { Card as StyledCard } from './styles.ts'
+
 import Profile from '../Profile'
 import ProfileCard from '../ProfileCard'
-import { CardButton as RemoveButton } from '../Buttons/styles.ts'
-import { CardButton as EditButton } from '../Buttons/styles.ts'
 import { ButtonContainer } from '../../styles'
+import { Card as StyledCard } from './styles.ts'
+import { CardButton as EditButton } from '../Buttons/styles.ts'
+import { CardButton as RemoveButton } from '../Buttons/styles.ts'
 
 const Card = () => {
   const dispatch = useDispatch()
@@ -19,6 +19,7 @@ const Card = () => {
 
   const userData = useSelector((state: RootReducer) => state.user.userData)
   const formData = useSelector((state: RootReducer) => state.form.forms)
+
   const handleEdit = (userId: number | undefined) => {
     if (userId !== undefined) {
       navigate(`/contact/${userId}`)
@@ -55,8 +56,9 @@ const Card = () => {
           </StyledCard>
         </div>
       ))}
-      {formData.map((form: Form) => (
-        <div key={form.phone}>
+
+      {formData.map((form: Form, index: number) => (
+        <div key={index + 1000}>
           <StyledCard>
             <Profile />
             <ProfileCard
@@ -65,13 +67,10 @@ const Card = () => {
               phone={form.phone}
             />
             <ButtonContainer>
-              <EditButton
-                onClick={() => {
-                  navigate('/Contacta')
-                }}
-              >
+              <EditButton onClick={() => handleEdit(index + 1000)}>
                 Editar
               </EditButton>
+
               <RemoveButton
                 onClick={() => {
                   if (form.phone && form.email) {

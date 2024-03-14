@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { colors as V } from '../../styles/variables'
 
 export const Form = styled.form`
   margin: 1rem auto;
@@ -7,7 +8,7 @@ export const Form = styled.form`
   padding: 3rem 0 1rem 0;
   font-weight: bold;
   font-size: 14px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: ${V.transparentWhite};
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   border-radius: 1rem;
@@ -22,22 +23,22 @@ export const Input = styled.input`
   margin: 0.5rem auto 1rem auto;
   padding: 0.3rem;
   font-weight: bold;
-  background-color: #fff;
+  background-color: ${V.white};
   border-radius: 0.5rem;
   border: none;
-  color: #666666;
+  color: ${V.gray02};
 `
 
 export const Label = styled.label`
   display: block;
-  color: #fff;
+  color: ${V.white};
   left: -8.8rem;
   position: relative;
 `
 
 export const NewContactTitel = styled.h2`
   font-size: 1.5rem;
-  color: #fff;
+  color: ${V.white};
   font-weight: bold;
   position: relative;
   margin: 0.5rem 0 2rem 0;

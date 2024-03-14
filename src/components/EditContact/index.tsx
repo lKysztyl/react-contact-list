@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 import { RootReducer } from '../../store'
 import { edit } from '../../store/reducers/fakeAPI'
+import { edit as editForm } from '../../store/reducers/infoUser'
 
 import { ContactContainer, MainContainer, FlexContainer } from '../../styles'
 import { CancelButton, SaveButton } from '../Buttons/styles'
@@ -19,11 +20,13 @@ const EditContact = () => {
   const user = useSelector((state: RootReducer) =>
     state.user.userData.find((user) => user.id === userId)
   )
-
+  const form = useSelector((state: RootReducer) =>
+    state.form.forms.find((form) => form.id == userId)
+  )
   const [userEdit, setUserEdit] = useState({
-    name: user ? user.name : '',
-    email: user ? user.email : '',
-    phone: user ? user.phone : ''
+    name: user?.name || form?.name || '',
+    email: user?.email || form?.email || '',
+    phone: user?.phone || form?.phone || ''
   })
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -36,6 +39,7 @@ const EditContact = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    dispatch(editForm(userEdit))
     dispatch(edit(userEdit))
     navigate('/')
   }
@@ -44,7 +48,7 @@ const EditContact = () => {
     navigate('/')
   }
 
-  if (!user) {
+  if (!user && !userEdit) {
     return <div>Usuário não encontrado</div>
   }
 
