@@ -47,6 +47,12 @@ export const ButtonContainer = styled.div`
   display: block;
   width: 100%;
   margin-left: auto;
+
+  @media (max-width: 576px) {
+    display: flex;
+    justify-content: space-between;
+    width: 0;
+  }
 `
 
 export const FlexContainer = styled.div`

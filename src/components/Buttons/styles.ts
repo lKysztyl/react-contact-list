@@ -6,12 +6,18 @@ export const CardButton = styled.button`
   display: block;
   width: 125px;
   height: 25px;
-  color: #fff;
+  color: ${V.white};
   border: none;
   border-radius: 5px;
   background-color: ${V.darkside};
   cursor: pointer;
   margin: 1rem;
+
+  @media (max-width: 568px) {
+    max-width: 85px;
+    height: 35px;
+    margin: 0.5rem;
+  }
 `
 
 export const SaveButton = styled.input`

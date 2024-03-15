@@ -17,4 +17,10 @@ export const Card = styled.div`
   & > :nth-child(2) {
     justify-self: start;
   }
+
+  @media (max-width: 568px) {
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 2fr;
+    height: 10rem;
+  }
 `
